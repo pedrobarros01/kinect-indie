@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "kinect-indie"
+name = "kinect_indie"
 version = "0.1.0"
 description = "This project is about a desktop application to capture a player's movements and translate them into an infinity game"
 authors = ["Pedro Barros <pedrobarros0101@outlook.com>"]
@@ -13,6 +13,9 @@ ultralytics = "^8.3.31"
 PyAutoGUI = "^0.9.54"
 keyboard = "^0.13.5"
 
+
+[tool.poetry.scripts]
+play = "kinect_indie.controller.main:run"
 
 [build-system]
 requires = ["poetry-core"]
