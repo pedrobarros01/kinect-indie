@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "kinect-indie"
+version = "0.1.0"
+description = "This project is about a desktop application to capture a player's movements and translate them into an infinity game"
+authors = ["Pedro Barros <pedrobarros0101@outlook.com>"]
+license = "MIT License"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+opencv-python = "^4.10.0.84"
+ultralytics = "^8.3.31"
+PyAutoGUI = "^0.9.54"
+keyboard = "^0.13.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
