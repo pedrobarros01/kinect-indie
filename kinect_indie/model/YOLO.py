@@ -1,6 +1,6 @@
 from ultralytics import YOLO
-
-class ModelYOLO:
+from .IModelo import IModelo
+class ModelYOLO(IModelo):
     def __init__(self) -> None:
         self.yolo = YOLO('yolov8n.pt')
 
