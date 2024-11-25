@@ -11,7 +11,7 @@ class CameraControl:
         self.line_color = (0,0,255)
         self.thickness = 2
 
-
+    
     def ligar_camera(self):
         camera = cv.VideoCapture(self.camera_id)
         ligado = True
