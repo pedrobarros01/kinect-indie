@@ -12,6 +12,7 @@ opencv-python = "^4.10.0.84"
 ultralytics = "^8.3.31"
 PyAutoGUI = "^0.9.54"
 keyboard = "^0.13.5"
+tk = "^0.1.0"
 
 
 [tool.poetry.scripts]
