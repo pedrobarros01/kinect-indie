@@ -16,7 +16,6 @@ class CameraControl:
         self.line_color = (0,0,255)
         self.thickness = 2
 
-    
     def ligar_camera(self):
         camera = cv.VideoCapture(self.camera_id)
         ligado = True
@@ -45,14 +44,14 @@ class CameraControl:
             if points_minimum_player != None and points_minimum_player != None:
                 if GameService.pulou(points_minimum_player, [self.line_start, self.line_end]):
                     pyautogui.press('space')
-                    print('Pulou')
+                    print('\nPulou\n')
                 elif GameService.mover(points_minimum_player, points_maximum_player, self.quad_esq):
+                    pyautogui.press('right')
+                    print('\nMoveu pra dir\n')
+                elif GameService.mover(points_minimum_player, points_maximum_player, self.quad_dir):
                     pyautogui.press('left')
                     print(points_maximum_player)
-                    print('Moveu pra esq')
-                elif GameService.mover(points_minimum_player, points_maximum_player, self.quad_dir):
-                    pyautogui.press('right')
-                    print('Moveu pra dir')
+                    print('\nMoveu pra esq\n')
             else:
                 print('Nada')
            
