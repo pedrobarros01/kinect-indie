@@ -3,6 +3,8 @@ from ..model.IModelo import IModelo
 from ..services.GameService import GameService
 import pyautogui
 
+pyautogui.FAILSAFE = False
+
 class CameraControl:
     def __init__(self, camera_id, modelo: IModelo, resolution: tuple[int, int], exit_key='q') -> None:
         self.camera_id = camera_id
