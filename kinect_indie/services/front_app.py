@@ -49,13 +49,14 @@ def coletar_teclas():
 
     canvas.create_rectangle(0.0, 0.0, 600.0, 57.0, fill="#0D7910", outline="")
     canvas.create_text(
-        115.0,
-        8.0,
-        anchor="nw",
+        600.0 / 2,
+        57.0 / 2,
+        anchor="center",
         text="Kinect Indie",
         fill="#FFFFFF",
+        
         font=("Jersey25 Regular", 40 * -1)
-    )
+)
 
     canvas.create_text(164.0, 105.0, anchor="nw", text="Exit key", fill="#B3B3B3", font=("Inter", 16 * -1))
     entry_image_1 = PhotoImage(file=relative_to_assets("entry_1.png"))
