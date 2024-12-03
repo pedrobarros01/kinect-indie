@@ -1,14 +1,17 @@
 import cv2 as cv
-from ..model.IModelo import IModelo
-from ..services.GameService import GameService
+from .IModelo import IModelo
+from ..services.game_service import GameService
 import pyautogui
 
 pyautogui.FAILSAFE = False
 
 class CameraControl:
-    def __init__(self, camera_id, modelo: IModelo, resolution: tuple[int, int], exit_key='q') -> None:
+    def __init__(self, camera_id, modelo: IModelo, resolution: tuple[int, int], exit_key, left_key, right_key, jump_key) -> None:
         self.camera_id = camera_id
         self.exit_key = exit_key
+        self.left_key = left_key
+        self.right_key = right_key
+        self.jump_key = jump_key
         self.modelo = modelo
         self.resolution = resolution
         self.line_start = (0,50)
@@ -45,13 +48,13 @@ class CameraControl:
             cv.rectangle(frame, (self.quad_dir[0][0], self.quad_dir[0][1]), (self.quad_dir[1][0], self.quad_dir[1][1],), (0,0,255), 2)
             if points_minimum_player != None and points_minimum_player != None:
                 if GameService.pulou(points_minimum_player, [self.line_start, self.line_end]):
-                    pyautogui.press('space')
+                    pyautogui.press(self.jump_key)
                     print('\nPulou\n')
                 elif GameService.mover(points_minimum_player, points_maximum_player, self.quad_esq):
-                    pyautogui.press('right')
+                    pyautogui.press(self.right_key)
                     print('\nMoveu pra dir\n')
                 elif GameService.mover(points_minimum_player, points_maximum_player, self.quad_dir):
-                    pyautogui.press('left')
+                    pyautogui.press(self.left_key)
                     print(points_maximum_player)
                     print('\nMoveu pra esq\n')
             else:
