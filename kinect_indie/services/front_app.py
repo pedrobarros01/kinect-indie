@@ -21,6 +21,19 @@ def coletar_teclas():
         window.quit()
         return exit_key, left_key, right_key, jump_key
 
+    def set_default_buttons():
+        entry_1.delete("1.0", "end")
+        entry_1.insert("1.0", "q")  # Default para "Exit key"
+        
+        entry_2.delete("1.0", "end")
+        entry_2.insert("1.0", "left")  # Default para "Left key"
+        
+        entry_3.delete("1.0", "end")
+        entry_3.insert("1.0", "right")  # Default para "Right key"
+        
+        entry_4.delete("1.0", "end")
+        entry_4.insert("1.0", "space")  # Default para "Jump key"
+
     window = Tk()
     window.geometry("600x600")
     window.configure(bg="#2A2A2A")
@@ -54,9 +67,19 @@ def coletar_teclas():
         anchor="center",
         text="Kinect Indie",
         fill="#FFFFFF",
-        
         font=("Jersey25 Regular", 40 * -1)
-)
+    )
+
+    button_image_2 = PhotoImage(file=relative_to_assets("button_2.png"))
+    button_2 = Button(
+        image=button_image_2,
+        borderwidth=0,
+        highlightthickness=0,
+        command=set_default_buttons,
+        relief="flat",
+        bg="#0D7910"
+    )
+    button_2.place(x=450.0, y=62.0, width=120.0, height=30.0)
 
     canvas.create_text(164.0, 105.0, anchor="nw", text="Exit key", fill="#B3B3B3", font=("Inter", 16 * -1))
     entry_image_1 = PhotoImage(file=relative_to_assets("entry_1.png"))
