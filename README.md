@@ -20,12 +20,14 @@ Kinect Indie is a computer vision application developed in Python that allows pl
 
 ## Results 📈:
 
-
 ## How to install 🔬:
 
 First, clone this repository. After that, simply go to the project folder and type the command:
 
 	poetry install
+
+## How to run it 🏃:
+
  	poetry shell 
   	poetry run play
 
