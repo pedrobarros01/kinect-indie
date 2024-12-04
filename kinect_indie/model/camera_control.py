@@ -28,6 +28,7 @@ class CameraControl:
             status, frame = camera.read()
             if not status or cv.waitKey(1) & 0xFF == ord(self.exit_key):
                 ligado = False
+            frame = cv.flip(frame, 1)
             detection_results = self.modelo.predizer_frame(frame)
             points_minimum_player = None
             points_maximum_player = None
@@ -51,13 +52,13 @@ class CameraControl:
                     pyautogui.press(self.jump_key)
                     print('\nPulou\n')
                 elif GameService.mover(points_minimum_player, points_maximum_player, self.quad_esq):
-                    pyautogui.press(self.right_key)
-                    print('\nMoveu pra dir\n')
-                elif GameService.mover(points_minimum_player, points_maximum_player, self.quad_dir):
                     pyautogui.press(self.left_key)
                     print(points_maximum_player)
-                    print('\nMoveu pra esq\n')
+                    print('\nMoveu pra esquerda\n')
+                elif GameService.mover(points_minimum_player, points_maximum_player, self.quad_dir):
+                    pyautogui.press(self.right_key)
+                    print('\nMoveu pra direita\n')
             else:
                 print('Nada')
            
-            cv.imshow("Camera", frame)
+            cv.imshow("Camera", frame)     
